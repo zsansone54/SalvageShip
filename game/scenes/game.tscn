@@ -27,6 +27,11 @@ size = Vector3(50, 1, 50)
 custom_solver_bias = 1.0
 size = Vector3(50, 1, 50)
 
+[sub_resource type="BoxMesh" id="BoxMesh_gcfin"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yqjtg"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
 [node name="Game" type="Node3D" unique_id=1910215320]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=679513282]
@@ -58,3 +63,12 @@ size = Vector3(5.4121094, 0.6074219, 13.474731)
 
 [node name="Player" parent="." unique_id=791873009 instance=ExtResource("1_uwrxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4999998, 0)
+
+[node name="TestCrate" type="StaticBody3D" parent="." unique_id=1829410642 groups=["salvageable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8095628, 0.996902, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestCrate" unique_id=1555533099]
+mesh = SubResource("BoxMesh_gcfin")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestCrate" unique_id=285685066]
+shape = SubResource("ConvexPolygonShape3D_yqjtg")

@@ -20,3 +20,6 @@ shape = SubResource("CapsuleShape3D_3vyb7")
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=341019717]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8856385, 0)
 current = true
+
+[node name="InteractionRaycast" type="RayCast3D" parent="Head/Camera3D" unique_id=1491403265]
+target_position = Vector3(0, 0, -3)

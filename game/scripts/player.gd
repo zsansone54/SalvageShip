@@ -4,10 +4,8 @@ var input_direction: Vector2
 var speed: float = 5.0
 
 @export var mouse_sensitivity: float = 0.005
-@export var acceleration = 60.0
+@export var acceleration = 25.0
 @export var jump_velocity = 4.5
-@export var air_control = 5.0
-@export var air_resistance = 2.0
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
@@ -45,11 +43,17 @@ func _physics_process(delta: float) -> void:
 	var horizontal_velocity = Vector3(velocity.x, 0, velocity.z)
 	
 	if is_on_floor():
-		# Ground movement
 		if direction:
-			horizontal_velocity =  horizontal_velocity.move_toward(target_velocity, air_control * delta)
-			
-		horizontal_velocity = horizontal_velocity.move_toward(Vector3.ZERO, air_resistance * delta)
+			horizontal_velocity = horizontal_velocity.move_toward(
+				target_velocity,
+				acceleration * delta
+			)
+		else:
+			horizontal_velocity = horizontal_velocity.move_toward(
+				Vector3.ZERO,
+				acceleration * delta
+			)
+
 		velocity.x = horizontal_velocity.x
 		velocity.z = horizontal_velocity.z
 	move_and_slide()
