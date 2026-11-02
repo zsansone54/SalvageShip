@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 var input_direction: Vector2
 var speed: float = 5.0
-var dismantle_target = Node
+var dismantle_target: Node = null
 var dismantle_progress: float = 0.0
 
 @export var mouse_sensitivity: float = 0.005
@@ -12,9 +12,12 @@ var dismantle_progress: float = 0.0
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var interaction_raycast = $Head/Camera3D/InteractionRaycast
-
+@onready var interaction_ui = $HUD/InteractionUI
+@onready var interaction_label = $HUD/InteractionUI/InteractionLabel
+@onready var dismantle_progress_bar = $HUD/InteractionUI/DismantleProgress
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	interaction_ui.hide()
 
 func _unhandled_input(event):
 		if event is InputEventMouseMotion and Input.mouse_mode  == Input.MOUSE_MODE_CAPTURED:
@@ -62,14 +65,40 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	if interaction_raycast.is_colliding():
-		dismantle_target = interaction_raycast.get_collider() as Node
-		if dismantle_target != null and dismantle_target.is_in_group("salvageable") \
-		and dismantle_target.has_method("interact") and Input.is_action_pressed("interact"):
-			dismantle_progress += delta
-			if dismantle_progress >= dismantle_target.dismantle_time:
+		var aimed_target := interaction_raycast.get_collider() as Node
+
+		if aimed_target != null \
+		and aimed_target.is_in_group("salvageable") \
+		and aimed_target.has_method("interact"):
+			interaction_ui.show()
+			if aimed_target.is_in_group("pickupable"):
+				interaction_label.text = "Hold E to pick up"
+			else:
+				interaction_label.text = "Hold E to dismantle"
+			if aimed_target != dismantle_target:
+				dismantle_target = aimed_target
 				dismantle_progress = 0.0
-				dismantle_target.interact()
+			var dismantle_time: float = dismantle_target.get("dismantle_time")
+
+			if Input.is_action_pressed("interact"):
+				dismantle_progress += delta
+			else:
+				dismantle_progress = 0.0
+
+			dismantle_progress_bar.value = (dismantle_progress / dismantle_time) * 100
+
+			if dismantle_progress >= dismantle_time:
+				var completed_target := dismantle_target
+				dismantle_target = null
+				dismantle_progress = 0.0
+				interaction_ui.hide()
+				completed_target.call("interact")
+			
 		else:
+			interaction_ui.hide()
+			dismantle_target = null
 			dismantle_progress = 0.0
-			dismantle_target = Node
-	print(dismantle_progress, dismantle_target)
+	else:
+		interaction_ui.hide()
+		dismantle_target = null
+		dismantle_progress = 0.0
