@@ -25,7 +25,6 @@ material = SubResource("StandardMaterial3D_3vyb7")
 size = Vector3(50, 1, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7d38b"]
-custom_solver_bias = 1.0
 size = Vector3(50, 1, 50)
 
 [sub_resource type="BoxMesh" id="BoxMesh_gcfin"]

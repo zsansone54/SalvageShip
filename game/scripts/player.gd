@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 var input_direction: Vector2
 var speed: float = 5.0
+var dismantle_target = Node
+var dismantle_progress: float = 0.0
 
 @export var mouse_sensitivity: float = 0.005
 @export var acceleration = 25.0
@@ -26,14 +28,8 @@ func _unhandled_input(event):
 		if event is InputEventMouseButton and event.pressed:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-		if interaction_raycast.is_colliding():
-			var target = interaction_raycast.get_collider() as Node
-			if target.is_in_group("salvageable"):
-				if Input.is_action_just_pressed("interact"):
-					target.interact()
-			
-
 func _physics_process(delta: float) -> void:
+
 	# Gravity when in air
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -64,3 +60,16 @@ func _physics_process(delta: float) -> void:
 		velocity.x = horizontal_velocity.x
 		velocity.z = horizontal_velocity.z
 	move_and_slide()
+
+	if interaction_raycast.is_colliding():
+		dismantle_target = interaction_raycast.get_collider() as Node
+		if dismantle_target != null and dismantle_target.is_in_group("salvageable") \
+		and dismantle_target.has_method("interact") and Input.is_action_pressed("interact"):
+			dismantle_progress += delta
+			if dismantle_progress >= dismantle_target.dismantle_time:
+				dismantle_progress = 0.0
+				dismantle_target.interact()
+		else:
+			dismantle_progress = 0.0
+			dismantle_target = Node
+	print(dismantle_progress, dismantle_target)
