@@ -27,6 +27,20 @@ target_position = Vector3(0, 0, -3)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1387794954]
 
+[node name="TopHud" type="VBoxContainer" parent="HUD" unique_id=362626929]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CreditsLabel" type="Label" parent="HUD/TopHud" unique_id=797829339]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "C: 100"
+
+[node name="CapacityLabel" type="Label" parent="HUD/TopHud" unique_id=2031643608]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "0/10"
+
 [node name="Crosshair" type="TextureRect" parent="HUD" unique_id=1234366398]
 anchors_preset = 8
 anchor_left = 0.5

@@ -12,12 +12,11 @@ var dismantle_progress: float = 0.0
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var interaction_raycast = $Head/Camera3D/InteractionRaycast
-@onready var interaction_ui = $HUD/InteractionUI
-@onready var interaction_label = $HUD/InteractionUI/InteractionLabel
-@onready var dismantle_progress_bar = $HUD/InteractionUI/DismantleProgress
+
+
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	interaction_ui.hide()
+	Hud.hideui()
 
 func _unhandled_input(event):
 		if event is InputEventMouseMotion and Input.mouse_mode  == Input.MOUSE_MODE_CAPTURED:
@@ -70,7 +69,7 @@ func _physics_process(delta: float) -> void:
 		if aimed_target != null \
 		and aimed_target.is_in_group("salvageable") \
 		and aimed_target.has_method("interact"):
-			interaction_ui.show()
+			Hud.showui()
 			if aimed_target.is_in_group("pickupable"):
 				interaction_label.text = "Hold E to pick up"
 			else:

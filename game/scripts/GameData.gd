@@ -1,6 +1,7 @@
-extends Node
+class_name GameData
+extends RefCounted
 
-func data() -> Dictionary:
+static func data() -> Dictionary:
 	return {
 		"game_version": "0.1",
 		
