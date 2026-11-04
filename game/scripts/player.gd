@@ -89,7 +89,7 @@ func _physics_process(delta: float) -> void:
 				dismantle_progress = 0.0
 
 			var progress_percent := (dismantle_progress / dismantle_time) * 100.0
-			hud.show_interaction(interaction_message, progress_percent)
+			hud.showui(interaction_message, progress_percent)
 
 			if dismantle_progress >= dismantle_time:
 				var completed_target := dismantle_target

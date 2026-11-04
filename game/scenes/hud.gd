@@ -1,9 +1,9 @@
 class_name Hud
-extends Control
+extends CanvasLayer
 
-@onready var interaction_label = $HUD/InteractionUI/InteractionLabel
-@onready var dismantle_progress_bar = $HUD/InteractionUI/DismantleProgress
-@onready var interaction_ui = $HUD/InteractionUI
+@onready var interaction_label = $InteractionUI/InteractionLabel
+@onready var dismantle_progress_bar = $InteractionUI/DismantleProgress
+@onready var interaction_ui = $InteractionUI
 
 func _ready() -> void:
 	hideui()
