@@ -1,11 +1,14 @@
 extends Node
 
+var game_data: Dictionary 
+var credits: int
+var inventory_capacity: int
+var inventory_used: int
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	pass # Replace with function body.
+	game_data = GameData.data()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

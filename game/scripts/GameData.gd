@@ -1,11 +1,16 @@
 extends Node
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func data() -> Dictionary:
+	return {
+		"game_version": "0.1",
+		
+		"initial_values": {
+			"starting_credits": 100,
+			"starting_capacity": 10
+		},
+		
+		"salvage_items": [
+			
+		]
+	}
+	
