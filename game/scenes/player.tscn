@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cobslkd1ctqfc"]
 
 [ext_resource type="Script" uid="uid://bjxo8qjaaymqm" path="res://scripts/player.gd" id="1_3vyb7"]
-[ext_resource type="Texture2D" uid="uid://yidkoseciakg" path="res://assets/kenney_crosshairs/PNG/Glow/crosshair-172.png" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://dki5waxln5i3a" path="res://scenes/hud.tscn" id="2_g2els"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gcfin"]
 
@@ -9,6 +9,9 @@
 
 [node name="Player" type="CharacterBody3D" unique_id=791873009]
 script = ExtResource("1_3vyb7")
+mouse_sensitivity = null
+acceleration = null
+jump_velocity = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2073191164]
 mesh = SubResource("CapsuleMesh_gcfin")
@@ -25,60 +28,4 @@ current = true
 [node name="InteractionRaycast" type="RayCast3D" parent="Head/Camera3D" unique_id=1491403265]
 target_position = Vector3(0, 0, -3)
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1387794954]
-
-[node name="TopHud" type="VBoxContainer" parent="HUD" unique_id=362626929]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="CreditsLabel" type="Label" parent="HUD/TopHud" unique_id=797829339]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "C: 100"
-
-[node name="CapacityLabel" type="Label" parent="HUD/TopHud" unique_id=2031643608]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "0/10"
-
-[node name="Crosshair" type="TextureRect" parent="HUD" unique_id=1234366398]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -37.0
-offset_top = -37.0
-offset_right = 37.0
-offset_bottom = 37.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_g2els")
-
-[node name="InteractionUI" type="VBoxContainer" parent="HUD" unique_id=509581706]
-visible = false
-custom_minimum_size = Vector2(350, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -175.0
-offset_top = 40.0
-offset_right = 175.0
-offset_bottom = 99.00006
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="InteractionLabel" type="Label" parent="HUD/InteractionUI" unique_id=1776844104]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Hold E to dismantle"
-horizontal_alignment = 1
-
-[node name="DismantleProgress" type="ProgressBar" parent="HUD/InteractionUI" unique_id=1993104227]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-show_percentage = false
+[node name="Hud" parent="." unique_id=1137436045 instance=ExtResource("2_g2els")]
