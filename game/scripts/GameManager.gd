@@ -13,5 +13,9 @@ func _ready() -> void:
 	inventory_capacity = game_data["initial_values"]["starting_capacity"]
 	inventory_used = 0
 
-func _process(delta: float) -> void:
-	pass
+
+func get_salvage_name(target: StaticBody3D) -> String:
+	return target.name
+	
+func salvage_object(target: Node) -> void:
+	print (target.get_salvage_name(target))

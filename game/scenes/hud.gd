@@ -1,4 +1,3 @@
-class_name Hud
 extends CanvasLayer
 
 @onready var interaction_label = $InteractionUI/InteractionLabel

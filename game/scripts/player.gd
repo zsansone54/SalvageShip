@@ -12,7 +12,7 @@ var dismantle_progress: float = 0.0
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var interaction_raycast = $Head/Camera3D/InteractionRaycast
-@onready var hud: Hud = $Hud
+@onready var hud = $Hud
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -96,7 +96,7 @@ func _physics_process(delta: float) -> void:
 				dismantle_target = null
 				dismantle_progress = 0.0
 				hud.hideui()
-				completed_target.call("interact")
+				GameManager.salvage_object(completed_target)
 			
 		else:
 			hud.hideui()
