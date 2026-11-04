@@ -12,11 +12,11 @@ var dismantle_progress: float = 0.0
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var interaction_raycast = $Head/Camera3D/InteractionRaycast
-
+@onready var hud: Hud = $Hud
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	Hud.hideui()
+	hud.hideui()
 
 func _unhandled_input(event):
 		if event is InputEventMouseMotion and Input.mouse_mode  == Input.MOUSE_MODE_CAPTURED:
@@ -69,14 +69,18 @@ func _physics_process(delta: float) -> void:
 		if aimed_target != null \
 		and aimed_target.is_in_group("salvageable") \
 		and aimed_target.has_method("interact"):
-			Hud.showui()
+			
+			var interaction_message: String
+			
 			if aimed_target.is_in_group("pickupable"):
-				interaction_label.text = "Hold E to pick up"
+				interaction_message = "Hold E to pick up"
 			else:
-				interaction_label.text = "Hold E to dismantle"
+				interaction_message = "Hold E to dismantle"
+				
 			if aimed_target != dismantle_target:
 				dismantle_target = aimed_target
 				dismantle_progress = 0.0
+				
 			var dismantle_time: float = dismantle_target.get("dismantle_time")
 
 			if Input.is_action_pressed("interact"):
@@ -84,20 +88,21 @@ func _physics_process(delta: float) -> void:
 			else:
 				dismantle_progress = 0.0
 
-			dismantle_progress_bar.value = (dismantle_progress / dismantle_time) * 100
+			var progress_percent := (dismantle_progress / dismantle_time) * 100.0
+			hud.show_interaction(interaction_message, progress_percent)
 
 			if dismantle_progress >= dismantle_time:
 				var completed_target := dismantle_target
 				dismantle_target = null
 				dismantle_progress = 0.0
-				interaction_ui.hide()
+				hud.hideui()
 				completed_target.call("interact")
 			
 		else:
-			interaction_ui.hide()
+			hud.hideui()
 			dismantle_target = null
 			dismantle_progress = 0.0
 	else:
-		interaction_ui.hide()
+		hud.hideui()
 		dismantle_target = null
 		dismantle_progress = 0.0
