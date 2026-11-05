@@ -11,7 +11,11 @@ static func data() -> Dictionary:
 		},
 		
 		"salvage_items": [
-			
+			{
+				"display_name": "Test Crate",
+				"credit_value": 25,
+				"inventory_size": 1
+			}
 		]
 	}
 	

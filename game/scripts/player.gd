@@ -95,8 +95,9 @@ func _physics_process(delta: float) -> void:
 				var completed_target := dismantle_target
 				dismantle_target = null
 				dismantle_progress = 0.0
-				hud.hideui()
-				GameManager.salvage_object(completed_target)
+				var was_salvaged: bool = completed_target.call("interact")
+				if was_salvaged:
+					hud.hideui()
 			
 		else:
 			hud.hideui()

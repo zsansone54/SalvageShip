@@ -73,3 +73,13 @@ mesh = SubResource("BoxMesh_gcfin")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestCrate" unique_id=285685066]
 shape = SubResource("ConvexPolygonShape3D_yqjtg")
+
+[node name="TestCrate2" type="StaticBody3D" parent="." unique_id=531242839 groups=["salvageable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.401576, 0.996902, 0)
+script = ExtResource("3_lnu2h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestCrate2" unique_id=18241437]
+mesh = SubResource("BoxMesh_gcfin")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestCrate2" unique_id=1554414074]
+shape = SubResource("ConvexPolygonShape3D_yqjtg")
