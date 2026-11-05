@@ -67,37 +67,42 @@ func _physics_process(delta: float) -> void:
 		var aimed_target := interaction_raycast.get_collider() as Node
 
 		if aimed_target != null \
-		and aimed_target.is_in_group("salvageable") \
 		and aimed_target.has_method("interact"):
-			
 			var interaction_message: String
-			
-			if aimed_target.is_in_group("pickupable"):
-				interaction_message = "Hold E to pick up"
-			else:
-				interaction_message = "Hold E to dismantle"
+			if aimed_target.is_in_group("salvageable") :
 				
-			if aimed_target != dismantle_target:
-				dismantle_target = aimed_target
-				dismantle_progress = 0.0
 				
-			var dismantle_time: float = dismantle_target.get("dismantle_time")
+				if aimed_target.is_in_group("pickupable"):
+					interaction_message = "Hold E to pick up"
+				else:
+					interaction_message = "Hold E to dismantle"
+					
+				if aimed_target != dismantle_target:
+					dismantle_target = aimed_target
+					dismantle_progress = 0.0
+					
+				var dismantle_time: float = dismantle_target.get("dismantle_time")
 
-			if Input.is_action_pressed("interact"):
-				dismantle_progress += delta
-			else:
-				dismantle_progress = 0.0
+				if Input.is_action_pressed("interact"):
+					dismantle_progress += delta
+				else:
+					dismantle_progress = 0.0
 
-			var progress_percent := (dismantle_progress / dismantle_time) * 100.0
-			hud.showui(interaction_message, progress_percent)
+				var progress_percent := (dismantle_progress / dismantle_time) * 100.0
+				hud.showui(interaction_message, progress_percent)
 
-			if dismantle_progress >= dismantle_time:
-				var completed_target := dismantle_target
-				dismantle_target = null
-				dismantle_progress = 0.0
-				var was_salvaged: bool = completed_target.call("interact")
-				if was_salvaged:
-					hud.hideui()
+				if dismantle_progress >= dismantle_time:
+					var completed_target := dismantle_target
+					dismantle_target = null
+					dismantle_progress = 0.0
+					var was_salvaged: bool = completed_target.call("interact")
+					if was_salvaged:
+						hud.hideui()
+				
+			if aimed_target.is_in_group("recycler"):
+				interaction_message = "Hold E to recycle salvage"
+				
+
 			
 		else:
 			hud.hideui()

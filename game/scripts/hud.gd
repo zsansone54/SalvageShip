@@ -9,7 +9,9 @@ extends CanvasLayer
 func _ready() -> void:
 	hideui()
 	update_inventory(GameManager.inventory_used, GameManager.inventory_capacity)
+	update_credits(GameManager.credits)
 	GameManager.inventory_changed.connect(update_inventory)
+	GameManager.credits_changed.connect(update_credits)
 
 func showui(message: String, progress: float) -> void:
 	interaction_ui.show()
@@ -22,3 +24,6 @@ func hideui() -> void:
 
 func update_inventory(used: int, capacity: int) -> void:
 	capacity_label.text = "Salvage: %d / %d" % [used, capacity]
+
+func update_credits(added_credits: int) -> void:
+	credits_label.text = "C: %d" % [added_credits]

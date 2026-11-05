@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cobslkd1ctqfc" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://br65f7wd37sqf" path="res://assets/kenney_prototype/PNG/Light/texture_06.png" id="1_yqjtg"]
 [ext_resource type="Script" uid="uid://k1kp26dhvqg1" path="res://scripts/salvageable.gd" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://6ls2nuv634o4" path="res://scenes/recycler.gd" id="4_lbhrr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yqjtg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -35,6 +36,12 @@ points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5
 [sub_resource type="SphereMesh" id="SphereMesh_lnu2h"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lnu2h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7d38b"]
+size = Vector3(1.0289001, 2.507782, 0.46777344)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gcfin"]
+size = Vector3(1.0095215, 2.4875946, 0.44873047)
 
 [node name="Game" type="Node3D" unique_id=1910215320]
 
@@ -88,3 +95,20 @@ mesh = SubResource("SphereMesh_lnu2h")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestOrb" unique_id=1554414074]
 shape = SubResource("SphereShape3D_lnu2h")
+
+[node name="Recycler" type="StaticBody3D" parent="." unique_id=721818163 groups=["recycler"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1092796, -6.6143136)
+script = ExtResource("4_lbhrr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Recycler" unique_id=300611831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23762512, 0.6094208, 0)
+mesh = SubResource("BoxMesh_7d38b")
+
+[node name="Label3D" type="Label3D" parent="Recycler/MeshInstance3D" unique_id=1363038733]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41226828, 0.24404716)
+text = "Recycler"
+font_size = 30
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Recycler" unique_id=51296170]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22888184, 0.625267, -0.007080078)
+shape = SubResource("BoxShape3D_gcfin")

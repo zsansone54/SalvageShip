@@ -7,7 +7,7 @@ var inventory_used: int
 var inventory: Array[int] = []
 
 signal inventory_changed(used: int, capacity: int)
-
+signal credits_changed(added_credits: int)
 
 func _ready() -> void:
 	game_data = GameData.data()
@@ -38,3 +38,10 @@ func try_add_salvage(salvage_id: int) -> bool:
 			inventory_used += size
 			inventory_changed.emit(inventory_used, inventory_capacity)
 			return true
+
+func recycle_inventory() -> void:
+	for id in inventory:
+		credits += get_salvage_data(id)["credit_value"]
+	inventory = []
+	inventory_used = 0
+	credits_changed.emit(credits)
