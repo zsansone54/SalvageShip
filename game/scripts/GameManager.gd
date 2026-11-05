@@ -45,3 +45,4 @@ func recycle_inventory() -> void:
 	inventory = []
 	inventory_used = 0
 	credits_changed.emit(credits)
+	inventory_changed.emit(inventory_used, inventory_capacity)

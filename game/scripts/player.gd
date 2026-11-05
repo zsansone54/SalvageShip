@@ -100,10 +100,28 @@ func _physics_process(delta: float) -> void:
 						hud.hideui()
 				
 			if aimed_target.is_in_group("recycler"):
-				interaction_message = "Hold E to recycle salvage"
-				
+				if aimed_target != dismantle_target:
+					dismantle_target = aimed_target
+					dismantle_progress = 0.0
 
-			
+				var recycle_time: float = aimed_target.get("recycle_time")
+
+				if Input.is_action_pressed("interact"):
+					dismantle_progress += delta
+				else:
+					dismantle_progress = 0.0
+
+				var progress_percent := (dismantle_progress / recycle_time) * 100.0
+				hud.showui("Hold E to recycle salvage", progress_percent)
+
+				if dismantle_progress >= recycle_time:
+					var completed_target := dismantle_target
+
+					dismantle_target = null
+					dismantle_progress = 0.0
+					hud.hideui()
+
+					completed_target.call("interact")
 		else:
 			hud.hideui()
 			dismantle_target = null
