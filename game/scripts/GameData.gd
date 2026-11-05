@@ -15,7 +15,13 @@ static func data() -> Dictionary:
 				"display_name": "Test Crate",
 				"credit_value": 25,
 				"inventory_size": 1
-			}
+			},
+			{
+				"display_name": "Test Orb",
+				"credit_value": 40,
+				"inventory_size": 2
+			},
+			
 		]
 	}
 	

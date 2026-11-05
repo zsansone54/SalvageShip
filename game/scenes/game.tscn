@@ -32,6 +32,10 @@ size = Vector3(50, 1, 50)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yqjtg"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
+[sub_resource type="SphereMesh" id="SphereMesh_lnu2h"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lnu2h"]
+
 [node name="Game" type="Node3D" unique_id=1910215320]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=679513282]
@@ -74,12 +78,13 @@ mesh = SubResource("BoxMesh_gcfin")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestCrate" unique_id=285685066]
 shape = SubResource("ConvexPolygonShape3D_yqjtg")
 
-[node name="TestCrate2" type="StaticBody3D" parent="." unique_id=531242839 groups=["salvageable"]]
+[node name="TestOrb" type="StaticBody3D" parent="." unique_id=531242839 groups=["salvageable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.401576, 0.996902, 0)
 script = ExtResource("3_lnu2h")
+salvage_id = 1
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TestCrate2" unique_id=18241437]
-mesh = SubResource("BoxMesh_gcfin")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestOrb" unique_id=18241437]
+mesh = SubResource("SphereMesh_lnu2h")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TestCrate2" unique_id=1554414074]
-shape = SubResource("ConvexPolygonShape3D_yqjtg")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestOrb" unique_id=1554414074]
+shape = SubResource("SphereShape3D_lnu2h")

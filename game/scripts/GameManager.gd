@@ -20,7 +20,7 @@ func get_salvage_data(salvage_id: int) -> Dictionary:
 	var salvage_items = game_data["salvage_items"]
 	var data = {}
 	
-	if salvage_id >= 0 and salvage_id <= salvage_items.size():
+	if salvage_id >= 0 and salvage_id < salvage_items.size():
 		data = salvage_items[salvage_id]
 	
 	return data
