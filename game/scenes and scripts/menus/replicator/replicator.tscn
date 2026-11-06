@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://bqieoemkyxiww"]
+
+[ext_resource type="Script" uid="uid://dlwidvrkuxf6v" path="res://scenes and scripts/menus/recycler/recycler_menu.gd" id="1_07puc"]
+[ext_resource type="Script" uid="uid://cmt6do3qhm6a0" path="res://scenes and scripts/menus/slide_panel.gd" id="2_d2mbv"]
+
+[node name="RecyclerMenu" type="Control" unique_id=587058442]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_07puc")
+
+[node name="Dimmer" type="ColorRect" parent="." unique_id=500876767]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.53333336)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=251570580]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_d2mbv")
+
+[node name="Panel" type="PanelContainer" parent="CenterContainer" unique_id=573534908]
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Panel" unique_id=1892012113]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer" unique_id=1322064606]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=1882518106]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Recycler"
+horizontal_alignment = 1
+
+[node name="InventoryList" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=718417503]
+layout_mode = 2
+
+[node name="TotalValueLabel" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=1680598174]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Total Value: 0 Credits"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=2018716102]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonRow" type="HBoxContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=1913667160]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="RecycleAllButton" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/ButtonRow" unique_id=512818262]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Recycle All"
+
+[node name="CloseButton" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/ButtonRow" unique_id=1762196614]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Close"
