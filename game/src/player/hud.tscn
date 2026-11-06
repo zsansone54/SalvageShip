@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dki5waxln5i3a"]
 
-[ext_resource type="Script" uid="uid://c50411h5bxyc6" path="res://scenes and scripts/player/hud.gd" id="1_3lmqh"]
+[ext_resource type="Script" uid="uid://c50411h5bxyc6" path="res://src/player/hud.gd" id="1_3lmqh"]
 [ext_resource type="Texture2D" uid="uid://yidkoseciakg" path="res://assets/kenney_crosshairs/PNG/Glow/crosshair-172.png" id="2_77mgs"]
-[ext_resource type="PackedScene" uid="uid://b0bdureycsfpm" path="res://scenes and scripts/menus/recycler/recycler_menu.tscn" id="3_3iq3a"]
+[ext_resource type="PackedScene" uid="uid://b0bdureycsfpm" path="res://src/menus/recycler/recycler_menu.tscn" id="3_3iq3a"]
 
 [node name="HUD" type="CanvasLayer" unique_id=833562857]
 script = ExtResource("1_3lmqh")

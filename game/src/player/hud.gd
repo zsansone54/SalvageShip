@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var credits_label = $TopHud/CreditsLabel
 @onready var capacity_label = $TopHud/CapacityLabel
 @onready var recycler_menu = $RecyclerMenu
+@onready var replicator_menu = $ReplicatorMenu
 
 func _ready() -> void:
 	hideui()
@@ -35,7 +36,7 @@ func open_recycler_menu() -> void:
 
 func open_replicator_menu() -> void:
 	hideui()
-	recycler_menu.open_menu()
+	replicator_menu.open_menu()
 
 func is_menu_open() -> bool:
 	return recycler_menu.visible

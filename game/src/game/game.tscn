@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://ckbes8bwejs8v"]
 
 [ext_resource type="Texture2D" uid="uid://br65f7wd37sqf" path="res://assets/kenney_prototype/PNG/Light/texture_06.png" id="1_2l342"]
-[ext_resource type="PackedScene" uid="uid://cobslkd1ctqfc" path="res://scenes and scripts/player/player.tscn" id="2_31l3o"]
-[ext_resource type="Script" uid="uid://k1kp26dhvqg1" path="res://scenes and scripts/game/salvageable.gd" id="3_gcj3a"]
-[ext_resource type="Script" uid="uid://6ls2nuv634o4" path="res://scenes and scripts/menus/recycler/recycler.gd" id="4_vhj4k"]
-[ext_resource type="Script" uid="uid://ctisqj4bctd0y" path="res://scenes and scripts/menus/replicator/replicator.gd" id="5_okkyg"]
+[ext_resource type="PackedScene" uid="uid://cobslkd1ctqfc" path="res://src/player/player.tscn" id="2_31l3o"]
+[ext_resource type="Script" uid="uid://k1kp26dhvqg1" path="res://src/game/salvageable.gd" id="3_gcj3a"]
+[ext_resource type="Script" uid="uid://6ls2nuv634o4" path="res://src/menus/recycler/recycler.gd" id="4_vhj4k"]
+[ext_resource type="Script" uid="uid://ctisqj4bctd0y" path="res://src/menus/replicator/replicator.gd" id="5_okkyg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yqjtg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bqieoemkyxiww"]
 
-[ext_resource type="Script" uid="uid://dlwidvrkuxf6v" path="res://scenes and scripts/menus/recycler/recycler_menu.gd" id="1_07puc"]
-[ext_resource type="Script" uid="uid://cmt6do3qhm6a0" path="res://scenes and scripts/menus/slide_panel.gd" id="2_d2mbv"]
+[ext_resource type="Script" uid="uid://ddh8ft5wmerdf" path="res://src/menus/replicator/replicator_menu.gd" id="1_4jrh6"]
+[ext_resource type="Script" uid="uid://cmt6do3qhm6a0" path="res://src/menus/slide_panel.gd" id="2_d2mbv"]
 
 [node name="RecyclerMenu" type="Control" unique_id=587058442]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_07puc")
+script = ExtResource("1_4jrh6")
 
 [node name="Dimmer" type="ColorRect" parent="." unique_id=500876767]
 layout_mode = 1

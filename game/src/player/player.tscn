@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cobslkd1ctqfc"]
 
-[ext_resource type="Script" uid="uid://bjxo8qjaaymqm" path="res://scenes and scripts/player/player.gd" id="1_3vyb7"]
-[ext_resource type="PackedScene" uid="uid://dki5waxln5i3a" path="res://scenes and scripts/player/hud.tscn" id="2_g2els"]
+[ext_resource type="Script" uid="uid://bjxo8qjaaymqm" path="res://src/player/player.gd" id="1_3vyb7"]
+[ext_resource type="PackedScene" uid="uid://dki5waxln5i3a" path="res://src/player/hud.tscn" id="2_g2els"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gcfin"]
 
