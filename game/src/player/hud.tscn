@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://yidkoseciakg" path="res://assets/kenney_crosshairs/PNG/Glow/crosshair-172.png" id="2_ykn6q"]
 [ext_resource type="PackedScene" uid="uid://b0bdureycsfpm" path="res://src/menus/recycler/recycler_menu.tscn" id="3_fjovf"]
 [ext_resource type="PackedScene" uid="uid://bqieoemkyxiww" path="res://src/menus/replicator/replicator_menu.tscn" id="4_07ufa"]
+[ext_resource type="PackedScene" uid="uid://h8dujebldxpe" path="res://src/menus/pause/pause_menu.tscn" id="5_07ufa"]
 
 [node name="HUD" type="CanvasLayer" unique_id=833562857]
 script = ExtResource("1_18dsp")
@@ -65,3 +66,5 @@ show_percentage = false
 [node name="RecyclerMenu" parent="." unique_id=587058442 instance=ExtResource("3_fjovf")]
 
 [node name="ReplicatorMenu" parent="." unique_id=1019231196 instance=ExtResource("4_07ufa")]
+
+[node name="PauseMenu" parent="." unique_id=766794792 instance=ExtResource("5_07ufa")]

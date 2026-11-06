@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cudbvew6i34n3" path="res://src/menus/pause/pause_menu.gd" id="1_h28e7"]
 [ext_resource type="Script" uid="uid://cmt6do3qhm6a0" path="res://src/menus/slide_panel.gd" id="2_r5mlc"]
+[ext_resource type="PackedScene" uid="uid://bmb7an6wf6nsu" path="res://src/menus/settings/settings_menu.tscn" id="3_r5mlc"]
 
 [node name="PauseMenu" type="Control" unique_id=766794792]
 layout_mode = 3
@@ -73,11 +74,13 @@ text = "Resume"
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Options
-"
+text = "Options"
 
 [node name="ReturnToMenuButton" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/ButtonRow" unique_id=1818406121]
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Return to Menu"
+
+[node name="SettingsMenu" parent="." unique_id=424313563 instance=ExtResource("3_r5mlc")]
+layout_mode = 1

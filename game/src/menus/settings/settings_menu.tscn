@@ -1,9 +1,76 @@
 [gd_scene format=3 uid="uid://bmb7an6wf6nsu"]
 
+[ext_resource type="Script" uid="uid://doyf2emefkhnv" path="res://src/menus/settings/settings_menu.gd" id="1_kajn4"]
+[ext_resource type="Script" uid="uid://cmt6do3qhm6a0" path="res://src/menus/slide_panel.gd" id="2_wljha"]
+
 [node name="SettingsMenu" type="Control" unique_id=424313563]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kajn4")
+
+[node name="Dimmer" type="ColorRect" parent="." unique_id=530398103]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.53333336)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2006542219]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_wljha")
+
+[node name="Panel" type="PanelContainer" parent="CenterContainer" unique_id=676413486]
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Panel" unique_id=456285634]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer" unique_id=986980926]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=265419178]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=738643250]
+layout_mode = 2
+
+[node name="MouseSensitivityLabel" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=1831925337]
+layout_mode = 2
+text = "Mouse Sensitivity"
+
+[node name="MouseSensitivitySlider" type="HSlider" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=1603502861]
+layout_mode = 2
+min_value = 0.001
+max_value = 0.02
+step = 0.001
+value = 0.005
+
+[node name="Spacer" type="Control" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=700060065]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BackButton" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=1158359524]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Back"
