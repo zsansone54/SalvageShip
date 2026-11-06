@@ -17,7 +17,8 @@ func _ready() -> void:
 	credits = game_data["initial_values"]["starting_credits"]
 	inventory_capacity = game_data["initial_values"]["starting_capacity"]
 	inventory_used = 0
-	upgrade_levels = [0]
+	for upgrade in game_data["upgrades"]:
+		upgrade_levels.append(0)
 
 func get_salvage_data(salvage_id: int) -> Dictionary:
 	var salvage_items = game_data["salvage_items"]
@@ -54,19 +55,19 @@ func try_purchase_upgrade(upgrade_id: int) -> bool:
 	var upgrades = game_data["upgrades"]
 	if upgrade_id >= 0 and upgrade_id < upgrades.size():
 		var upgrade_costs = upgrades[upgrade_id]["costs"]
-		if upgrade_id < upgrade_costs.size():
-			var cost = upgrade_costs[upgrade_id]
+		var current_level = upgrade_levels[upgrade_id]
+		if current_level < upgrade_costs.size():
+			var cost = upgrade_costs[current_level]
 			if credits >= cost:
 				credits -= cost
 				upgrade_levels[upgrade_id] += 1
-				if upgrade_id == 0:
-					inventory_capacity += upgrades[upgrade_id]["capacity_per_level"]
-					credits_changed.emit(credits)
-					inventory_changed.emit(inventory_used, inventory_capacity)
-					upgrade_purchased.emit(upgrade_id, upgrade_levels[upgrade_id])
-					return true
-				else:
-					return false
+				inventory_capacity += upgrades[upgrade_id]["capacity_per_level"]
+
+				credits_changed.emit(credits)
+				inventory_changed.emit(inventory_used, inventory_capacity)
+				upgrade_purchased.emit(upgrade_id, upgrade_levels[upgrade_id])
+
+				return true
 			else:
 				return false
 		else:
