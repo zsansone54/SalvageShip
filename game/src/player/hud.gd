@@ -39,4 +39,4 @@ func open_replicator_menu() -> void:
 	replicator_menu.open_menu()
 
 func is_menu_open() -> bool:
-	return recycler_menu.visible
+	return recycler_menu.visible or replicator_menu.visible

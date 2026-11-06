@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ddh8ft5wmerdf" path="res://src/menus/replicator/replicator_menu.gd" id="1_4jrh6"]
 [ext_resource type="Script" uid="uid://cmt6do3qhm6a0" path="res://src/menus/slide_panel.gd" id="2_d2mbv"]
 
-[node name="RecyclerMenu" type="Control" unique_id=587058442]
+[node name="ReplicatorMenu" type="Control" unique_id=587058442]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
