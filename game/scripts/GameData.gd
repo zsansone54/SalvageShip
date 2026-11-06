@@ -6,7 +6,7 @@ static func data() -> Dictionary:
 		"game_version": "0.1",
 		
 		"initial_values": {
-			"starting_credits": 100,
+			"starting_credits": 50,
 			"starting_capacity": 10
 		},
 		
@@ -22,6 +22,13 @@ static func data() -> Dictionary:
 				"inventory_size": 2
 			},
 			
+		],
+		"upgrades": [
+			{
+				"display_name": "Cargo Expansion",
+				"costs": [100, 250, 500],
+				"capacity_per_level": 5
+			}
 		]
 	}
 	
