@@ -50,6 +50,9 @@ theme_override_font_sizes/font_size = 40
 text = "Recycler"
 horizontal_alignment = 1
 
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=1837398681]
+layout_mode = 2
+
 [node name="InventoryList" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=718417503]
 layout_mode = 2
 

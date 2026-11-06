@@ -47,34 +47,25 @@ layout_mode = 2
 [node name="TitleLabel" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=1882518106]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Recycler"
+text = "Replicator"
 horizontal_alignment = 1
 
-[node name="InventoryList" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=718417503]
-layout_mode = 2
-
-[node name="TotalValueLabel" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=1680598174]
+[node name="CreditsLabel" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=1101044449]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Total Value: 0 Credits"
-horizontal_alignment = 1
+text = "Credits: 50"
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=629745144]
+layout_mode = 2
+
+[node name="UpgradePurchaseList" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=1889050482]
+layout_mode = 2
 
 [node name="Spacer" type="Control" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=2018716102]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ButtonRow" type="HBoxContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=1913667160]
-layout_mode = 2
-theme_override_constants/separation = 100
-alignment = 1
-
-[node name="RecycleAllButton" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/ButtonRow" unique_id=512818262]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Recycle All"
-
-[node name="CloseButton" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/ButtonRow" unique_id=1762196614]
+[node name="CloseButton" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=1762196614]
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
