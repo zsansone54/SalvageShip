@@ -63,17 +63,18 @@ layout_mode = 2
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="RecycleAllButton" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/ButtonRow" unique_id=1492401832]
+[node name="ResumeButton" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/ButtonRow" unique_id=1492401832]
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Recycle All"
+text = "Resume"
 
-[node name="CloseButton" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/ButtonRow" unique_id=478531659]
+[node name="OptionsButton" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/ButtonRow" unique_id=478531659]
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Close"
+text = "Options
+"
 
 [node name="ReturnToMenuButton" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/ButtonRow" unique_id=1818406121]
 custom_minimum_size = Vector2(200, 70)
