@@ -7,7 +7,7 @@ var inventory_used: int
 var inventory: Array[int] = []
 
 signal inventory_changed(used: int, capacity: int)
-signal credits_changed(added_credits: int)
+signal credits_changed(current_credits: int)
 
 func _ready() -> void:
 	game_data = GameData.data()

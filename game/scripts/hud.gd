@@ -25,5 +25,5 @@ func hideui() -> void:
 func update_inventory(used: int, capacity: int) -> void:
 	capacity_label.text = "Salvage: %d / %d" % [used, capacity]
 
-func update_credits(added_credits: int) -> void:
-	credits_label.text = "C: %d" % [added_credits]
+func update_credits(current_credits: int) -> void:
+	credits_label.text = "C: %d" % [current_credits]

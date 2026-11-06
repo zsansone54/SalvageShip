@@ -2,8 +2,8 @@ extends CharacterBody3D
 
 var input_direction: Vector2
 var speed: float = 5.0
-var dismantle_target: Node = null
-var dismantle_progress: float = 0.0
+var hold_target: Node = null
+var hold_progress: float = 0.0
 
 @export var mouse_sensitivity: float = 0.005
 @export var acceleration = 25.0
@@ -77,56 +77,56 @@ func _physics_process(delta: float) -> void:
 				else:
 					interaction_message = "Hold E to dismantle"
 					
-				if aimed_target != dismantle_target:
-					dismantle_target = aimed_target
-					dismantle_progress = 0.0
+				if aimed_target != hold_target:
+					hold_target = aimed_target
+					hold_progress = 0.0
 					
-				var dismantle_time: float = dismantle_target.get("dismantle_time")
+				var dismantle_time: float = hold_target.get("dismantle_time")
 
 				if Input.is_action_pressed("interact"):
-					dismantle_progress += delta
+					hold_progress += delta
 				else:
-					dismantle_progress = 0.0
+					hold_progress = 0.0
 
-				var progress_percent := (dismantle_progress / dismantle_time) * 100.0
+				var progress_percent := (hold_progress / dismantle_time) * 100.0
 				hud.showui(interaction_message, progress_percent)
 
-				if dismantle_progress >= dismantle_time:
-					var completed_target := dismantle_target
-					dismantle_target = null
-					dismantle_progress = 0.0
+				if hold_progress >= dismantle_time:
+					var completed_target := hold_target
+					hold_target = null
+					hold_progress = 0.0
 					var was_salvaged: bool = completed_target.call("interact")
 					if was_salvaged:
 						hud.hideui()
 				
-			if aimed_target.is_in_group("recycler"):
-				if aimed_target != dismantle_target:
-					dismantle_target = aimed_target
-					dismantle_progress = 0.0
+			elif aimed_target.is_in_group("recycler"):
+				if aimed_target != hold_target:
+					hold_target = aimed_target
+					hold_progress = 0.0
 
 				var recycle_time: float = aimed_target.get("recycle_time")
 
 				if Input.is_action_pressed("interact"):
-					dismantle_progress += delta
+					hold_progress += delta
 				else:
-					dismantle_progress = 0.0
+					hold_progress = 0.0
 
-				var progress_percent := (dismantle_progress / recycle_time) * 100.0
+				var progress_percent := (hold_progress / recycle_time) * 100.0
 				hud.showui("Hold E to recycle salvage", progress_percent)
 
-				if dismantle_progress >= recycle_time:
-					var completed_target := dismantle_target
+				if hold_progress >= recycle_time:
+					var completed_target := hold_target
 
-					dismantle_target = null
-					dismantle_progress = 0.0
+					hold_target = null
+					hold_progress = 0.0
 					hud.hideui()
 
 					completed_target.call("interact")
 		else:
 			hud.hideui()
-			dismantle_target = null
-			dismantle_progress = 0.0
+			hold_target = null
+			hold_progress = 0.0
 	else:
 		hud.hideui()
-		dismantle_target = null
-		dismantle_progress = 0.0
+		hold_target = null
+		hold_progress = 0.0
