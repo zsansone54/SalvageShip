@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://b0bdureycsfpm"]
 
+[ext_resource type="Script" uid="uid://dlwidvrkuxf6v" path="res://scripts/recycler_menu.gd" id="1_ltosr"]
+[ext_resource type="Script" uid="uid://cmt6do3qhm6a0" path="res://scripts/slide_panel.gd" id="2_r21ga"]
+
 [node name="RecyclerMenu" type="Control" unique_id=587058442]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ltosr")
 
 [node name="Dimmer" type="ColorRect" parent="." unique_id=500876767]
 layout_mode = 1
@@ -24,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_r21ga")
 
 [node name="Panel" type="PanelContainer" parent="CenterContainer" unique_id=573534908]
 custom_minimum_size = Vector2(600, 500)

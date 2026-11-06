@@ -96,6 +96,17 @@ mesh = SubResource("SphereMesh_lnu2h")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestOrb" unique_id=1554414074]
 shape = SubResource("SphereShape3D_lnu2h")
 
+[node name="TestOrb2" type="StaticBody3D" parent="." unique_id=361139037 groups=["salvageable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.401576, 0.996902, -3.4260156)
+script = ExtResource("3_lnu2h")
+salvage_id = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestOrb2" unique_id=37585916]
+mesh = SubResource("SphereMesh_lnu2h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestOrb2" unique_id=512672759]
+shape = SubResource("SphereShape3D_lnu2h")
+
 [node name="Recycler" type="StaticBody3D" parent="." unique_id=721818163 groups=["recycler"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1092796, -6.6143136)
 script = ExtResource("4_lbhrr")

@@ -19,6 +19,8 @@ func _ready():
 	hud.hideui()
 
 func _unhandled_input(event):
+		if hud.is_menu_open():
+			return
 		if event is InputEventMouseMotion and Input.mouse_mode  == Input.MOUSE_MODE_CAPTURED:
 			head.rotate_y(-event.relative.x * mouse_sensitivity)
 			camera.rotate_x(-event.relative.y * mouse_sensitivity)
@@ -31,7 +33,8 @@ func _unhandled_input(event):
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:
-
+	if hud.is_menu_open():
+		return
 	# Gravity when in air
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -121,7 +124,7 @@ func _physics_process(delta: float) -> void:
 					hold_progress = 0.0
 					hud.hideui()
 
-					completed_target.call("interact")
+					completed_target.call("interact", hud)
 		else:
 			hud.hideui()
 			hold_target = null

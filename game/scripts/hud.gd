@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var interaction_ui = $InteractionUI
 @onready var credits_label = $TopHud/CreditsLabel
 @onready var capacity_label = $TopHud/CapacityLabel
+@onready var recycler_menu = $RecyclerMenu
 
 func _ready() -> void:
 	hideui()
@@ -27,3 +28,10 @@ func update_inventory(used: int, capacity: int) -> void:
 
 func update_credits(current_credits: int) -> void:
 	credits_label.text = "C: %d" % [current_credits]
+
+func open_recycler_menu() -> void:
+	hideui()
+	recycler_menu.open_menu()
+
+func is_menu_open() -> bool:
+	return recycler_menu.visible
