@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dki5waxln5i3a"]
 
-[ext_resource type="Script" uid="uid://c50411h5bxyc6" path="res://scripts/hud.gd" id="1_oo0fn"]
-[ext_resource type="Texture2D" uid="uid://yidkoseciakg" path="res://assets/kenney_crosshairs/PNG/Glow/crosshair-172.png" id="2_5ysmq"]
-[ext_resource type="PackedScene" uid="uid://b0bdureycsfpm" path="res://scenes/recycler_menu.tscn" id="3_5ysmq"]
+[ext_resource type="Script" uid="uid://c50411h5bxyc6" path="res://scenes and scripts/player/hud.gd" id="1_3lmqh"]
+[ext_resource type="Texture2D" uid="uid://yidkoseciakg" path="res://assets/kenney_crosshairs/PNG/Glow/crosshair-172.png" id="2_77mgs"]
+[ext_resource type="PackedScene" uid="uid://b0bdureycsfpm" path="res://scenes and scripts/menus/recycler/recycler_menu.tscn" id="3_3iq3a"]
 
 [node name="HUD" type="CanvasLayer" unique_id=833562857]
-script = ExtResource("1_oo0fn")
+script = ExtResource("1_3lmqh")
 
 [node name="TopHud" type="VBoxContainer" parent="." unique_id=1823809581]
 offset_right = 40.0
@@ -31,7 +31,7 @@ offset_right = 37.0
 offset_bottom = 37.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_5ysmq")
+texture = ExtResource("2_77mgs")
 
 [node name="InteractionUI" type="VBoxContainer" parent="." unique_id=1881422124]
 visible = false
@@ -61,4 +61,4 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 show_percentage = false
 
-[node name="RecyclerMenu" parent="." unique_id=587058442 instance=ExtResource("3_5ysmq")]
+[node name="RecyclerMenu" parent="." unique_id=587058442 instance=ExtResource("3_3iq3a")]

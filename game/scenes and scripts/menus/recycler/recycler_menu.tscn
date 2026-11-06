@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b0bdureycsfpm"]
 
-[ext_resource type="Script" uid="uid://dlwidvrkuxf6v" path="res://scripts/recycler_menu.gd" id="1_ltosr"]
-[ext_resource type="Script" uid="uid://cmt6do3qhm6a0" path="res://scripts/slide_panel.gd" id="2_r21ga"]
+[ext_resource type="Script" uid="uid://dlwidvrkuxf6v" path="res://scenes and scripts/menus/recycler/recycler_menu.gd" id="1_ltosr"]
+[ext_resource type="Script" uid="uid://cmt6do3qhm6a0" path="res://scenes and scripts/menus/replicator/slide_panel.gd" id="2_r21ga"]
 
 [node name="RecyclerMenu" type="Control" unique_id=587058442]
 layout_mode = 3

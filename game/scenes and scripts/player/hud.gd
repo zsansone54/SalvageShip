@@ -33,5 +33,9 @@ func open_recycler_menu() -> void:
 	hideui()
 	recycler_menu.open_menu()
 
+func open_replicator_menu() -> void:
+	hideui()
+	recycler_menu.open_menu()
+
 func is_menu_open() -> bool:
 	return recycler_menu.visible

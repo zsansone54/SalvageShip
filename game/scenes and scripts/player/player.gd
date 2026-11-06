@@ -125,6 +125,30 @@ func _physics_process(delta: float) -> void:
 					hud.hideui()
 
 					completed_target.call("interact", hud)
+					
+			elif aimed_target.is_in_group("replicator"):
+				if aimed_target != hold_target:
+					hold_target = aimed_target
+					hold_progress = 0.0
+
+				var replicate_time: float = aimed_target.get("replicate_time")
+
+				if Input.is_action_pressed("interact"):
+					hold_progress += delta
+				else:
+					hold_progress = 0.0
+
+				var progress_percent := (hold_progress / replicate_time) * 100.0
+				hud.showui("Hold E to purchase upgrades", progress_percent)
+
+				if hold_progress >= replicate_time:
+					var completed_target := hold_target
+
+					hold_target = null
+					hold_progress = 0.0
+					hud.hideui()
+
+					completed_target.call("interact", hud)
 		else:
 			hud.hideui()
 			hold_target = null
