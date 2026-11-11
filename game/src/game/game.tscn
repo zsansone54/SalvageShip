@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://k1kp26dhvqg1" path="res://src/game/salvageable.gd" id="3_gcj3a"]
 [ext_resource type="Script" uid="uid://6ls2nuv634o4" path="res://src/menus/recycler/recycler.gd" id="4_vhj4k"]
 [ext_resource type="Script" uid="uid://ctisqj4bctd0y" path="res://src/menus/replicator/replicator.gd" id="5_okkyg"]
+[ext_resource type="PackedScene" uid="uid://c735llkmmmqvm" path="res://assets/custom/player_ship.glb" id="6_yarin"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yqjtg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -61,23 +62,12 @@ mesh = SubResource("BoxMesh_s7ls6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=122673784]
 shape = SubResource("BoxShape3D_7d38b")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=64692322]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.11573291, 0)
-use_collision = true
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=915823831]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9077215, 0.91944385, -2.6553473)
-size = Vector3(4.301758, 0.6074219, 6.699707)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=265621097]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.817729, 0.9268081, -4.9523125)
-size = Vector3(5.4121094, 0.6074219, 13.474731)
-
 [node name="Player" parent="." unique_id=791873009 instance=ExtResource("2_31l3o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4999998, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0654416, 1.4999998, 0)
 
 [node name="TestCrate" type="StaticBody3D" parent="." unique_id=1829410642 groups=["salvageable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8095628, 0.996902, 0)
+visible = false
 script = ExtResource("3_gcj3a")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TestCrate" unique_id=1555533099]
@@ -88,6 +78,7 @@ shape = SubResource("ConvexPolygonShape3D_yqjtg")
 
 [node name="TestOrb" type="StaticBody3D" parent="." unique_id=531242839 groups=["salvageable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.401576, 0.996902, 0)
+visible = false
 script = ExtResource("3_gcj3a")
 salvage_id = 1
 
@@ -99,6 +90,7 @@ shape = SubResource("SphereShape3D_lnu2h")
 
 [node name="TestOrb2" type="StaticBody3D" parent="." unique_id=361139037 groups=["salvageable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.401576, 0.996902, -3.4260156)
+visible = false
 script = ExtResource("3_gcj3a")
 salvage_id = 1
 
@@ -110,6 +102,7 @@ shape = SubResource("SphereShape3D_lnu2h")
 
 [node name="Recycler" type="StaticBody3D" parent="." unique_id=721818163 groups=["recycler"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1092796, -6.6143136)
+visible = false
 script = ExtResource("4_vhj4k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Recycler" unique_id=300611831]
@@ -127,6 +120,7 @@ shape = SubResource("BoxShape3D_gcfin")
 
 [node name="Replicator" type="StaticBody3D" parent="." unique_id=795739755 groups=["replicator"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9654075, 1.1092796, -6.6143136)
+visible = false
 script = ExtResource("5_okkyg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Replicator" unique_id=682657196]
@@ -141,3 +135,6 @@ font_size = 30
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Replicator" unique_id=304898302]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22888184, 0.625267, -0.007080078)
 shape = SubResource("BoxShape3D_gcfin")
+
+[node name="player_ship" parent="." unique_id=72575455 instance=ExtResource("6_yarin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.900159, 0.531903, -0.854208)
