@@ -2,12 +2,12 @@ extends CharacterBody3D
 
 
 var input_direction: Vector2
-var speed: float = 5.0
+var speed: float = 8.0
 var hold_target: Node = null
 var hold_progress: float = 0.0
 
 @export var mouse_sensitivity: float = 0.005
-@export var acceleration: float = 25.0
+@export var acceleration: float = 35.0
 @export var jump_velocity: float = 4.5
 
 @onready var head = $Head
